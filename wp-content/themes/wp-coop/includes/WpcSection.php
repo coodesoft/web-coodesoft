@@ -1,7 +1,11 @@
 <?php
 class WpcSection{
-  protected $data      = [
-    'id' => '', 'class' => '', 'content' => '', 'page_id' => '',
+
+  protected $data = [
+    'id' => '',
+    'class' => '',
+    'content' => '',
+    'page_id' => '',
     'widget_data' => [],
     'content_element_attr' => [
       //'tag'   => 'div',
@@ -72,7 +76,7 @@ class WpcSectionPage extends WpcSection{
   public function printHTML(){
     $this->printInitHTML();
     if ($this->data['page_id'] == '')
-      echo 'Esta sección no tiene ninguna pagina asociada';
+      echo 'Esta sección no tiene ninguna página asociada';
     else
       echo get_page($this->data['page_id'])->post_content;
     $this->printEndHTML();

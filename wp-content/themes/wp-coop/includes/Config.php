@@ -19,7 +19,7 @@ function WpcGetSectionsSiglePost(){
 
 function WpcGetSectionsIndexInfo(){
 return [
-  ['type_class' => WpcSectionPage, 'id' => 'inicio', 'page_id' => 22//WpcColsContainer,
+  [   'type_class' => WpcSectionPage, 'id' => 'inicio', 'page_id' => 22//WpcColsContainer,
   //  'container' => 'section',
   /*  'content' => [
       ['type_class' => WpcSectionPage,     'container' => 'div','class' => 'col-xs-4'],
@@ -36,7 +36,7 @@ return [
       ],
     ],*/
   ],
-  ['type_class' => WpcSectionMenu,
+  [ 'type_class' => WpcSectionMenu,
     'menu_options' => [
       'id'    => 'Main',
       'brand' => [
@@ -48,14 +48,12 @@ return [
       'class'     => 'navbar-inverse fixed-top',
     ],
   ],
-  [
-      'type_class' => WpcSectionPage,
+  [   'type_class' => WpcSectionPage,
       'id' => 'nosotros',
       'content_element_attr' => ['tag' => 'div', 'class'=>'container'],
       'page_id' => 19
   ],
-  [
-      'type_class'           => WpcSectionPodsGrid,
+  [   'type_class' => WpcSectionPodsGrid,
       'id'                   => 'equipo',
       'posts_p_fila'         => 2,
       'class'                => 'col equipo',
@@ -78,27 +76,23 @@ return [
         'class'      => 'col text-center',
       ],
   ],
-  [
-      'type_class' => WpcSectionPodsGrid,
+  [   'type_class' => WpcSectionPodsGrid,
       'content_element_attr' => ['tag' => 'div', 'class'=>'container'],
       'id'       => 'servicios',
       'pods'     => ['id'=>'servicio'],
   ],
-  [
-      'type_class' => WpcSectionPodsGrid,
+  [   'type_class' => WpcSectionPodsGrid,
       'id' => 'porfolio',
       'content_element_attr' => ['tag' => 'div', 'class'=>'container'],
       'pods'     => ['id'=>'porfolio'],
   ],
-  [
-      'type_class' => WpcSectionPosts,
+  [   'type_class' => WpcSectionPosts,
       'id' => 'noticias',
       'category' => 'Noticias',
       'posts_p_fila' => 2,
       'content_element_attr' => ['tag' => 'div', 'class'=>'container'],
   ],
-  [
-      'type_class' => WpcSectionPage,
+  [   'type_class' => WpcSectionPage,
       'id' => 'contacto',
       'page_id' => 24
   ],
