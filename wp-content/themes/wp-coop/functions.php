@@ -1,7 +1,7 @@
 <?php
 $directorio = dirname( __FILE__ );
 require_once $directorio.'/options-framework.php';
-require_once $directorio.'/includes/bs4navwalker.php';
+//require_once $directorio.'/includes/bs4navwalker.php';
 require_once $directorio.'/includes/WpcSection.php';
 require_once $directorio.'/includes/WpcPodsField.php';
 require_once $directorio.'/includes/WpcSectionPodsGrid.php';

@@ -45,7 +45,7 @@ return [
       ],
       'btn_align' => 'left',
       'estate'    => 'collapse',
-      'class'     => 'navbar-inverse fixed-top',
+      'class'     => 'navbar-inverse',
     ],
   ],
   [   'type_class' => WpcSectionPage,

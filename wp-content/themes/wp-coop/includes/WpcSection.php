@@ -124,16 +124,18 @@ class WpcSectionMenu extends WpcSection{
         <span class="navbar-toggler-icon"></span>
       </button>
       <a class="navbar-brand" href="'.$this->data['menu_options']['brand']['url'].'">'.$this->data['menu_options']['brand']['content'].'</a>';
+    /*
     wp_nav_menu([
-      'menu'              => $this->data['menu_options']['id'],
-      'depth'             => 2,
-      'container'         => 'div',
-      'container_class'   => 'collapse navbar-collapse',
-      'container_id'      => $this->data['menu_options']['id'],
-      'menu_class'        => 'navbar-nav mr-auto',
-      'walker'            => new bs4navwalker,
-    ]);
-
+        'menu'              => $this->data['menu_options']['id'],
+        'depth'             => 2,
+        'container'         => 'div',
+        'container_class'   => 'collapse navbar-collapse',
+        'container_id'      => $this->data['menu_options']['id'],
+        'menu_class'        => 'navbar-nav mr-auto',
+      //'walker'            => new bs4navwalker,
+      ]);
+    */
+    echo json_encode(get_pages()[0]->menu_order);
     echo '</nav>';
   }
 }
