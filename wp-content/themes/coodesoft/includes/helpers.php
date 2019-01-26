@@ -1,31 +1,28 @@
 <?php
 
-class Html{
 
 
-  static function navbar($content){ ?>
+function coode_prepare_content(){
+  $content = get_pages();
+  return coode_build_sections($content);
+}
 
-    <nav id="mainMenu" class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav mr-auto">
-        <?php
-          foreach ($content as $key => $item): ?>
-          <li class="nav-item">
-            <a class="nav-link" href="#<?php echo strtolower($item['name'])?>"><?php echo strtoupper($item['name']) ?></a>
-          </li>
-        <?php endforeach; ?>
-        </ul>
-      </div>
-    </nav>
-
-  <?php
+function coode_build_sections($content){
+  $menu_items = [];
+  $sections = [];
+  foreach ($content as $key => $page) {
+    $menu_items[] = [ 'name' => get_the_title($page), 'order' => $page->menu_order ];
+    $sections[]   = [ 'id' => strtolower(get_the_title($page)), 'content' => $page->post_content, 'order' => $page->menu_order ];
   }
 
-  static function section($content){
+  return [ 'menu_items' => coode_sort_by_orderAttr($menu_items),
+           'content' => coode_sort_by_orderAttr($sections) ];
+}
 
-  }
+function coode_sort_by_orderAttr($collection){
+  usort($collection, function($A, $B){
+      if ($A['order'] == $B['order']) return 0;
+      return ($A['order'] < $B['order']) ? -1 : +1;
+    });
+  return $collection;
 }
