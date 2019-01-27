@@ -23,11 +23,15 @@ class Html{
   <?php
   }
 
-  static function section($content, $id){ ?>
+  static function section($content, $webId, $entityId){ ?>
     <section id="<?php echo $id?>">
-      <div class="container">
-        <?php echo $content; ?>
-      </div>
+		<?php 
+			$mod = get_theme_mod('background_'.$entityId);
+		
+		?>
+		<div class="container" style="background: url(<?php echo $mod ?>) no-repeat center; background-size: 100%">
+			<?php echo $content; ?>
+		</div>
     </section>
   <?php
   }

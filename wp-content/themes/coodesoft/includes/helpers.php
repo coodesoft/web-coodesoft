@@ -4,6 +4,7 @@
 
 function coode_prepare_content(){
   $content = get_pages();
+//  echo json_encode($content);
   return coode_build_sections($content);
 }
 
@@ -12,7 +13,10 @@ function coode_build_sections($content){
   $sections = [];
   foreach ($content as $key => $page) {
     $menu_items[] = [ 'name' => get_the_title($page), 'order' => $page->menu_order ];
-    $sections[]   = [ 'id' => strtolower(get_the_title($page)), 'content' => $page->post_content, 'order' => $page->menu_order ];
+    $sections[]   = [ 'webId' => strtolower(get_the_title($page)), 
+					  'content' => $page->post_content, 
+					  'order' => $page->menu_order,
+					  'id' => $page->ID ];
   }
 
   return [ 'menu_items' => coode_sort_by_orderAttr($menu_items),
@@ -26,3 +30,17 @@ function coode_sort_by_orderAttr($collection){
     });
   return $collection;
 }
+
+
+/* NO ESTA EN USO */
+function coode_attachment_img($page_id){
+	$url = [];
+
+	$is = get_children("post_parent=$".$page_id."&post_type=attachment&post_mime_type=image/jpeg");
+	foreach($is as $i) {
+	  $url[] = wp_get_attachment_image_src($i->ID, 'full');
+	}
+	echo json_encode($url);
+	return 	$url;
+}
+
