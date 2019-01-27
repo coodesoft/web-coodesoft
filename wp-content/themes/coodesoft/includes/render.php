@@ -4,7 +4,7 @@ class Html{
 
 
   static function navbar($content){ ?>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light center-margin">
+    <nav id="main_menu" class="navbar navbar-expand-lg navbar-light bg-light center-margin">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -23,14 +23,51 @@ class Html{
   <?php
   }
 
-  static function section($content, $webId, $entityId){ ?>
+  static function home_section($content, $entityId, $args = null){ ?>
+  	<?php 
+		$theme_mod_background = get_theme_mod('background_'.$entityId);
+		$theme_mod_home_logo = get_theme_mod('home_image_setting');
+		$id = $args ? $args['id'] : '';
+	?>
+	  <section id="<?php echo $id?>">
+			<div id="home_page" class="wrapper-page" style="background: url(<?php echo $theme_mod_background ?>) no-repeat center">
+				<div class="cover-page">
+					<div class="container">
+						
+						<div class="home_image">
+						<!--	<div class="home_image_cover"></div> -->
+							<div class="home_image_wrapper col-sm-5 col-8">
+								<img src="<?php echo $theme_mod_home_logo ?>" alt="home page main image" />
+							</div>
+						</div>
+						
+						<div class="home_content">
+							<?php echo $content; ?>
+						</div>
+						<div class="home_link">
+							<a href="#main_menu">
+								<i class="far fa-angle-double-down fa-2x"></i>
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+  <?php
+  }
+
+  static function section($content, $entityId, $args = null){ ?>
+	<?php 
+		$mod = get_theme_mod('background_'.$entityId);
+		$id = $args ? $args['id'] : '';
+	?>
     <section id="<?php echo $id?>">
-		<?php 
-			$mod = get_theme_mod('background_'.$entityId);
-		
-		?>
-		<div class="container" style="background: url(<?php echo $mod ?>) no-repeat center; background-size: 100%">
-			<?php echo $content; ?>
+		<div class="wrapper-page" style="background: url(<?php echo $mod ?>) no-repeat center">
+			<div class="cover-page">
+				<div class="container">
+					<?php echo $content; ?>
+				</div>
+			</div>
 		</div>
     </section>
   <?php

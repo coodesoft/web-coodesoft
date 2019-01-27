@@ -4,7 +4,6 @@
 
 function coode_prepare_content(){
   $content = get_pages();
-//  echo json_encode($content);
   return coode_build_sections($content);
 }
 

@@ -1,6 +1,3 @@
-out: css/compressed.css, compress: true
-
-
 /*
 Theme Name: One Page Coodesoft
 Author: Coodesoft Dev Team
@@ -17,7 +14,86 @@ This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool. A great power carries a great responsibility
 */
 
-
+/*out: css/compressed.css, compress: true*/
 .center-margin{
   margin: auto;
 }
+
+html {
+  scroll-behavior: smooth;
+}
+
+#home_page{
+	.container{
+		text-align: center;
+	}
+
+	.home_image{
+		padding-top: 40vh;
+		position: relative;
+		
+		.home_image_wrapper{
+			margin: auto;
+			height: 30vh;
+			display: flex;
+			align-items: center;
+		}
+
+		
+		.home_image_cover{
+			background: rgba(250, 250, 250, 0.2);
+			width: 100%;
+			height: 30vh;
+			position: absolute;
+			//filter: blur(4px);
+		}
+				
+		img{
+			width: 100%;
+		}
+	}
+	
+	.home_content{
+		p{
+			text-transform: uppercase;
+			font-size: 1.8vw; 
+			color: #ccc;
+			&:first-child{
+				margin-bottom: 0;
+			 }
+		}
+	}
+
+	.home_link{
+	    margin-top: 40px;	
+		a{
+			color: #ccc;
+		}
+	}
+}
+
+#main_menu{
+	padding-top: 0;
+	padding-bottom: 0;
+	background-color: #000 !important;
+	a.nav-link{
+		color: #ccc !important;
+		font-size: 12px;
+		padding-left: 5px;
+		padding-right: 5px;
+		&:hover{
+			color: #00a400 !important;
+		}
+	}
+}
+
+.cover-page{
+	background-color: rgba(0, 0, 0, 0.7);
+	min-height: 100vh;
+}
+
+.wrapper-page{
+	background-size: cover !important;
+	min-height: 100vh;	
+}
+

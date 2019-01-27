@@ -1,17 +1,1 @@
-/*
-Theme Name: One Page Coodesoft
-Author: Coodesoft Dev Team
-Author URI: https://coodesoft.com.ar
-Description: One Page theme with parallax features, portfolio, and extras
-Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-Tags: black, green, one-page, flexible-width, custom-header, custom-menu, rtl-language-support, i18n
-Text Domain: coodetheme
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool. A great power carries a great responsibility
-*/
-
-
-@import url(css/compressed.css);
+.center-margin{margin:auto}html{scroll-behavior:smooth}#home_page .container{text-align:center}#home_page .home_image{padding-top:40vh;position:relative}#home_page .home_image .home_image_wrapper{margin:auto;height:30vh;display:flex;align-items:center}#home_page .home_image .home_image_cover{background:rgba(250,250,250,.2);width:100%;height:30vh;position:absolute}#home_page .home_image img{width:100%}#home_page .home_content p{text-transform:uppercase;font-size:1.8vw;color:#ccc}#home_page .home_content p:first-child{margin-bottom:0}#home_page .home_link{margin-top:40px}#home_page .home_link a{color:#ccc}#main_menu{padding-top:0;padding-bottom:0;background-color:#000!important}#main_menu a.nav-link{color:#ccc!important;font-size:12px;padding-left:5px;padding-right:5px}#main_menu a.nav-link:hover{color:#00a400!important}.cover-page{background-color:rgba(0,0,0,.7);min-height:100vh}.wrapper-page{background-size:cover!important;min-height:100vh}
