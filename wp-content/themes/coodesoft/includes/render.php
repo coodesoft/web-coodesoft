@@ -4,6 +4,7 @@ class Html{
 
 
   static function navbar($content){ ?>
+  <div id="explore">
     <nav id="main_menu" class="navbar navbar-expand-lg navbar-light bg-light center-margin">
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -20,6 +21,7 @@ class Html{
         </ul>
       </div>
     </nav>
+	</div>
   <?php
   }
 
@@ -45,7 +47,7 @@ class Html{
 							<?php echo $content; ?>
 						</div>
 						<div class="home_link">
-							<a href="#main_menu">
+							<a href="#explore">
 								<i class="far fa-angle-double-down fa-2x"></i>
 							</a>
 						</div>
@@ -64,7 +66,7 @@ class Html{
     <section id="<?php echo $id?>">
 		<div class="wrapper-page" style="background: url(<?php echo $mod ?>) no-repeat center">
 			<div class="cover-page">
-				<div class="container">
+				<div class="container content-page">
 					<?php echo $content; ?>
 				</div>
 			</div>
