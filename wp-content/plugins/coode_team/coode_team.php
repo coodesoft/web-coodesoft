@@ -12,7 +12,7 @@ License: GPL2
 
 define( 'COODETEAM__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
 define( 'TEAM_PHOTOS_PATH', COODETEAM__PLUGIN_DIR . 'team');
-
+define( 'TEAM_PHOTOS_URL', get_site_url() . '/wp-content/plugins/coode_team/team' );
 
 
 /*
@@ -26,7 +26,7 @@ function coode_team_install(){
 
 function coode_team_create_table(){
     global $wpdb;
-    
+
 	$table_name = $wpdb->prefix. 'coode_team_plugin';
 
     if( $wpdb->get_var("SHOW TABLES LIKE '$table_name'") != $table_name ) {
@@ -35,9 +35,9 @@ function coode_team_create_table(){
             member_id int(10) NOT NULL AUTO_INCREMENT,
             img_path varchar(300) NOT NULL,
             name varchar(100) NOT NULL,
-			linkedin varchar(300) NOT NULL,
-			mail varchar(100) NOT NULL,
-			freelancer varchar(300) NOT NULL,
+						linkedin varchar(300) NOT NULL,
+						mail varchar(100) NOT NULL,
+						freelancer varchar(300) NOT NULL,
             PRIMARY KEY  (member_id)
         ) $charset_collate;";
         require_once( ABSPATH . 'wp-admin/includes/upgrade.php' );
@@ -79,4 +79,6 @@ function coode_team_admin_menu(){
 }
 
 require_once 'db/CoodeTeam.php';
+require_once 'util/helpers.php';
+require_once 'admin/templates/team_card.php';
 require_once 'admin/ct_admin_area.php';
