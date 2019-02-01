@@ -9,6 +9,12 @@ Author URI: http://coodesoft.com.ar
 License: GPL2
 */
 
+
+define( 'COODETEAM__PLUGIN_DIR', plugin_dir_path( __FILE__ ) );
+define( 'TEAM_PHOTOS_PATH', COODETEAM__PLUGIN_DIR . 'team');
+
+
+
 /*
  * ACTIVACIÓN - Creación de la tabla -----------------------
  */
@@ -72,4 +78,5 @@ function coode_team_admin_menu(){
 	add_menu_page('Coode Team', 'Coode Team', 'manage_options', 'global_coode_team', 'global_coode_team_content');
 }
 
+require_once 'db/CoodeTeam.php';
 require_once 'admin/ct_admin_area.php';

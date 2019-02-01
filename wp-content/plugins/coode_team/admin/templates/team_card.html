@@ -1,33 +1,38 @@
 
 
-<div class="col-sm-6 col-12">
-<form>
+<div class="col-sm-6 col-12 card-container">
+<form enctype="multipart/form-data">
 	<div class="card">
 		<div class="card-header">
-			<img class="card-img-top" src="/web-coodesoft/wp-content/uploads/2019/01/oodesoft940x180-1.png" alt="Card image cap">
+			<div class="col-12">
+				<img class="card-img-top" src="/web-coodesoft/wp-content/uploads/2019/01/oodesoft940x180-1.png" alt="Card image cap">
+			</div>
 		</div>
 		<div class="card-body">
 			<div class="form-group">
-				<label for="nameInput">Nombre</label>
-				<input type="text" class="form-control" id="nameInput" placeholder="Nombre">
+				<input type="file" class="form-control-file" id="photoInput" name="photo" required>
 			</div>
 			<div class="form-group">
-				<label for="linkedinINput">Linkedin</label>
-				<input type="text" class="form-control" id="linkedinINput" placeholder="Linkedin">
+				<label for="nameInput">Nombre</label>
+				<input type="text" class="form-control" id="nameInput" name="TeamMember[name]" required>
 			</div>
 			<div class="form-group">
 				<label for="emailInput">Email</label>
-				<input type="text" class="form-control" id="emailInput" placeholder="Email">
+				<input type="text" class="form-control" id="emailInput" placeholder="Correo electrónico" name="TeamMember[email]" required>
+			</div>
+			<div class="form-group">
+				<label for="linkedinINput">Linkedin</label>
+				<input type="text" class="form-control" id="linkedinINput" placeholder="Usuario de Linkedin" name="TeamMember[linkedin]">
 			</div>
 			<div class="form-group">
 				<label for="freelancerInput">Freelancer</label>
-				<input type="text" class="form-control" id="freelancerInput" placeholder="Freelancer">
+				<input type="text" class="form-control" id="freelancerInput" placeholder="Usuario de Freelancer" name="TeamMember[freelancer]">
 			</div>			
 		</div>
 
 		<div  class="card-footer" style="text-align: center">;
-			<button class="btn btn-dark">Eliminar</button>
-			<button class="btn btn-dark">Guardar</button>
+			<button type="button" class="delete-card btn btn-dark">Eliminar</button>
+			<button type="submit" class="save-card btn btn-dark">Guardar</button>
 		</div>
 	</div>
 </form>
