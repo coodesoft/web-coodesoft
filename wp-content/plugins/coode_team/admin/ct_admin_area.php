@@ -19,7 +19,7 @@ function global_coode_team_content(){
 			<div class="col-12">
 				<button id="newCardButton" type="button" class="btn btn-dark">Nueva Tarjeta</button>
 			</div>
-      <div class="ct_result" class="col-12 d-none alert"></div>
+      <div class="col-12 ct_result d-none alert"></div>
   		<div id="coodeCardContainer" class="col-12">
   			<div class="row">
           <?php foreach ($storedCards as $key => $card): ?>
@@ -34,31 +34,74 @@ function global_coode_team_content(){
 
 <?php
 }
-add_action( 'wp_ajax_ct_create_team_card', 'ct_create_team_card' );
-function ct_create_team_card(){
 
+
+function updateTeamCard($uid, $teamMember){
+	$stored = CoodeTeam::getById($uid); 
+	if ( is_uploaded_file($_FILES['photo']['tmp_name']) ){
+		$photo = $_FILES['photo'];
+		if ( unlink( $stored['img_path'] ) && move_uploaded_file($photo['tmp_name'], TEAM_PHOTOS_PATH . '/'. $photo['name']) ){
+			$toSave['img_path'] = TEAM_PHOTOS_PATH . '/'. $photo['name'];
+			
+			if ( isset($teamMember['name']) )
+				$toSave['name'] = $teamMember['name'];
+			
+			if ( isset($teamMember['email']) )
+				$toSave['mail'] = $teamMember['email'];
+			
+			if ( isset($teamMember['linkedin']) )
+				$toSave['linkedin'] = isset($teamMember['linkedin']) ? $teamMember['linkedin'] : '';
+
+			if ( isset($teamMember['freelancer']) )
+				$toSave['freelancer'] = isset($teamMember['freelancer']) ? $teamMember['freelancer'] : '';
+			
+			return CoodeTeam::update($toSave, $teamMember['uid']);
+		}		
+	}
+	return null;
+}
+
+
+add_action( 'wp_ajax_ct_create_team_card', 'ct_save_team_card' );
+function ct_save_team_card(){
+	$teamMember = $_POST['TeamMember'];
+	
 	$photo = $_FILES['photo'];
 	if (move_uploaded_file($photo['tmp_name'], TEAM_PHOTOS_PATH . '/'. $photo['name'])){
-		$teamMember = $_POST['TeamMember'];
-		$toSave['img_path'] = TEAM_PHOTOS_PATH . '/'. $photo['name'];
-		$toSave['name'] = $teamMember['name'];
-		$toSave['mail'] = $teamMember['email'];
-		$toSave['linkedin'] = isset($teamMember['linkedin']) ? $teamMember['linkedin'] : '';
-		$toSave['freelancer'] = isset($teamMember['freelancer']) ? $teamMember['freelancer'] : '';
+			$toSave['img_path'] = TEAM_PHOTOS_PATH . '/'. $photo['name'];
+			$toSave['name'] = $teamMember['name'];
+			$toSave['mail'] = $teamMember['email'];
+			$toSave['linkedin'] = isset($teamMember['linkedin']) ? $teamMember['linkedin'] : '';
+			$toSave['freelancer'] = isset($teamMember['freelancer']) ? $teamMember['freelancer'] : '';
 
-		$result = CoodeTeam::add($toSave);
-		$response = ['uid' => $result,
-                 'status' => $result>0 ? 'success' : 'danger',
-                 'msg'    => $result>0 ? 'La tarjeta se creó exitosamente! (:<' : 'Algo se rompió al intentar crear la tarjeta  ):'
-                ];
+			$result = CoodeTeam::add($toSave);
+			$response = ['uid' => $result,
+					 'status' => $result>0 ? 'success' : 'danger',
+					 'msg'    => $result>0 ? 'La tarjeta se creó exitosamente! (:' : 'Algo se rompió al intentar crear la tarjeta  ):'
+					];
 
 	} else {
-    $response = ['uid' => 0,
-                 'status' => 'danger',
-                 'msg'    => 'Hay algo mal que no anda bien ): '
-                ];
-	}
+			$response = ['uid' => 0,
+						 'status' => 'danger',
+						 'msg'    => 'Hay algo mal que no anda bien ): '
+						];
+	}		
 
-  echo json_encode($response);
+	echo json_encode($response);
+	wp_die();
+}
+
+
+add_action( 'wp_ajax_ct_delete_team_card', 'ct_delete_team_card' );
+function ct_delete_team_card(){
+	$toDelete = intval($_POST['uid']);
+	if ($toDelete > 0){
+		$result = CoodeTeam::del($toDelete);
+		$response = ['result' => $result, 'uid' => $toDelete ];
+	} else{
+		$response = ['result' => false, 'uid' => toDelete ];
+	}
+	
+	echo json_encode($response);
 	wp_die();
 }

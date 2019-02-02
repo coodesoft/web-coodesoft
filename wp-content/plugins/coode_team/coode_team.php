@@ -15,6 +15,7 @@ define( 'TEAM_PHOTOS_PATH', COODETEAM__PLUGIN_DIR . 'team');
 define( 'TEAM_PHOTOS_URL', get_site_url() . '/wp-content/plugins/coode_team/team' );
 
 
+
 /*
  * ACTIVACIÓN - Creación de la tabla -----------------------
  */
@@ -78,7 +79,19 @@ function coode_team_admin_menu(){
 	add_menu_page('Coode Team', 'Coode Team', 'manage_options', 'global_coode_team', 'global_coode_team_content');
 }
 
+
+
+add_shortcode('coodeTeam', 'coode_team_base');
+
+function coode_team_base(){ 
+	echo '<div>lalita</div>';
+}
+
 require_once 'db/CoodeTeam.php';
 require_once 'util/helpers.php';
 require_once 'admin/templates/team_card.php';
 require_once 'admin/ct_admin_area.php';
+
+
+
+?>

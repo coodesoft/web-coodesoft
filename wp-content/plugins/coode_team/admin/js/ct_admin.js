@@ -35,12 +35,32 @@ $(function(){
 		let parent = $(this).closest('.card-container');
 		let form = parent.find('form');
 
-		if( $(this).attr("data-uid") ){
-			
-		}
+		if( $(form).attr("data-uid") && $(form).attr("data-uid")>0){
 
-		parent.remove();
+			let toDelete = {
+				'uid': $(form).attr("data-uid"),
+				'action': 'ct_delete_team_card',
+			};
+			
+			$.ajax({
+				url: ajaxurl,
+				data: toDelete,
+				type: 'POST',
+				success: function (data){
+					data = JSON.parse(data);
+					if ( data['result'] )
+						parent.remove();
+					else
+						console.log(data);
+				},
+				error: function (data){
+					console.log(data);
+				},
+			});
+		} else
+			parent.remove();
 	});
+
 
 	$('#coodeTeamPanel').on('change', '.form-control-file', function() {
 		let img = $(this).closest('.card-container').find('.card-img-top');
@@ -54,6 +74,7 @@ $(function(){
 		let form = $(this); // You need to use standard javascript object here
 		let formData = new FormData(form[0]);
 		formData.append("action", "ct_create_team_card");
+		
 		$.ajax({
 				url: ajaxurl,
 				data: formData,
@@ -70,22 +91,23 @@ $(function(){
 
 					if (data['uid']>0){
 						form.attr('data-uid', data['uid']);
+						form.find('input').attr('disabled', 'true');
+						form.find('.card').addClass('border border-success');
 					}
 
-					console.log(data);
 					setTimeout(function(){
 						$('.ct_result').removeClass(classname);
 						$('.ct_result').addClass('d-none');
 						$('.ct_result').empty();
 					}, 3000);
-
 				},
 				error: function(data){
 					console.log(data);
 				},
 		});
 
-	});
+	}); 
+	
 
 
 })

@@ -14,9 +14,9 @@
 
 		if ($key == 0){
 			echo Html::home_section($page['content'], $page['id'], ['id' => $page['webId'] ]);
-        } else
+        } else{
 			echo Html::section($page['content'], $page['id'], ['id' => $page['webId'] ]);
-
+			}
       }
 
     ?>
