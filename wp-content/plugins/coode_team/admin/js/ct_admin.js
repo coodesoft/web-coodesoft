@@ -7,7 +7,7 @@ let createNewTeamCard = function(){
 		type: "GET",
 		url: base_path+'/wp-content/plugins/coode_team/admin/templates/team_card.html',
 		success : function(data){
-			$('#coodeCardContainer>div').append(data);
+			$('#coodeCardContainer>div').prepend(data);
 		}
 	});
 
@@ -41,7 +41,7 @@ $(function(){
 				'uid': $(form).attr("data-uid"),
 				'action': 'ct_delete_team_card',
 			};
-			
+
 			$.ajax({
 				url: ajaxurl,
 				data: toDelete,
@@ -74,7 +74,7 @@ $(function(){
 		let form = $(this); // You need to use standard javascript object here
 		let formData = new FormData(form[0]);
 		formData.append("action", "ct_create_team_card");
-		
+
 		$.ajax({
 				url: ajaxurl,
 				data: formData,
@@ -106,8 +106,8 @@ $(function(){
 				},
 		});
 
-	}); 
-	
+	});
+
 
 
 })

@@ -37,26 +37,26 @@ function global_coode_team_content(){
 
 
 function updateTeamCard($uid, $teamMember){
-	$stored = CoodeTeam::getById($uid); 
+	$stored = CoodeTeam::getById($uid);
 	if ( is_uploaded_file($_FILES['photo']['tmp_name']) ){
 		$photo = $_FILES['photo'];
 		if ( unlink( $stored['img_path'] ) && move_uploaded_file($photo['tmp_name'], TEAM_PHOTOS_PATH . '/'. $photo['name']) ){
 			$toSave['img_path'] = TEAM_PHOTOS_PATH . '/'. $photo['name'];
-			
+
 			if ( isset($teamMember['name']) )
 				$toSave['name'] = $teamMember['name'];
-			
+
 			if ( isset($teamMember['email']) )
 				$toSave['mail'] = $teamMember['email'];
-			
+
 			if ( isset($teamMember['linkedin']) )
 				$toSave['linkedin'] = isset($teamMember['linkedin']) ? $teamMember['linkedin'] : '';
 
 			if ( isset($teamMember['freelancer']) )
 				$toSave['freelancer'] = isset($teamMember['freelancer']) ? $teamMember['freelancer'] : '';
-			
+
 			return CoodeTeam::update($toSave, $teamMember['uid']);
-		}		
+		}
 	}
 	return null;
 }
@@ -65,7 +65,7 @@ function updateTeamCard($uid, $teamMember){
 add_action( 'wp_ajax_ct_create_team_card', 'ct_save_team_card' );
 function ct_save_team_card(){
 	$teamMember = $_POST['TeamMember'];
-	
+
 	$photo = $_FILES['photo'];
 	if (move_uploaded_file($photo['tmp_name'], TEAM_PHOTOS_PATH . '/'. $photo['name'])){
 			$toSave['img_path'] = TEAM_PHOTOS_PATH . '/'. $photo['name'];
@@ -83,9 +83,9 @@ function ct_save_team_card(){
 	} else {
 			$response = ['uid' => 0,
 						 'status' => 'danger',
-						 'msg'    => 'Hay algo mal que no anda bien ): '
+						 'msg'    => 'Hay algo mal que no anda bien ):. No se pudo guardar la imágen en el servidor ',
 						];
-	}		
+	}
 
 	echo json_encode($response);
 	wp_die();
@@ -101,7 +101,7 @@ function ct_delete_team_card(){
 	} else{
 		$response = ['result' => false, 'uid' => toDelete ];
 	}
-	
+
 	echo json_encode($response);
 	wp_die();
 }

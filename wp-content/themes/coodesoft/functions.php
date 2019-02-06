@@ -2,7 +2,7 @@
 
 $directorio = dirname( __FILE__ );
 require_once $directorio.'/includes/helpers.php';
-//require_once $directorio.'/includes/render.php';
+require_once $directorio.'/includes/render.php';
 require_once $directorio.'/customize/index.php';
 
 //##############################################################################
@@ -23,27 +23,3 @@ function add_scripts_front(){
 
 }
 add_action( 'wp_footer', 'add_scripts_front' );
-
-
-function create_nav_menu(){
-  query_posts(['post_type' => 'page', 'orderby'=>'menu_order', 'order' => 'ASC']);
-  global $wp_query;
-
-  $menu_name = 'coode_nav_menu';
-  $menu_exists = wp_get_nav_menu_object( $menu_name );
-
-  // If it doesn't exist, let's create it.
-  if( !$menu_exists){
-      $menu_id = wp_create_nav_menu($menu_name);
-
-      while ( have_posts() ) : the_post();
-        wp_update_nav_menu_item($menu_id, 0, array(
-            'menu-item-title' =>  get_the_title(),
-            'menu-item-classes' => 'coode_nav_item',
-            'menu-item-url' => '#'. strtolower( get_the_title() ),
-            'menu-item-status' => 'publish' ));
-      endwhile;
-  }
-}
-
-create_nav_menu();

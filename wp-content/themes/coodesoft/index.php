@@ -10,10 +10,7 @@
 
       if ($query->post->menu_order == 0 ){
         get_template_part( 'template-parts/content', 'home' );
-        ?>
-        <div id="explore"></div>
-        <?php
-        wp_nav_menu(['name' => 'coode_nav_menu']);
+        Html::navbar();
       } else
         get_template_part( 'template-parts/content', 'page' );
 

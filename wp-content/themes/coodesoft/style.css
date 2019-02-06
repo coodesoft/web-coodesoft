@@ -26,7 +26,7 @@ section.page_section{
   background-attachment: fixed!important;
   position: absolute;
   min-height: 100%;
-  min-width: 100vw;
+  min-width: 100%;
   z-index: 100;
   -webkit-filter: blur(2px);
   filter: blur(2px);
@@ -34,29 +34,34 @@ section.page_section{
 
 .page_cover{
   min-height: 100%;
-  min-width: 100vw;
+  min-width: 100%;
   position: absolute;
   z-index: 110;
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.menu-coode-menu-container{
-  background-color: #000 !important;
-  text-align: center;
+#main_menu{
+  padding: 0!important;
   z-index: 130;
   position: relative;
 }
 
-#menu-coode-menu{
-  margin-bottom: 0;
+#menu-coode_nav_menu-container{
+  background-color: #000 !important;
+  text-align: center;
+
+}
+
+#menu-coode_nav_menu{
+  margin: auto;
   padding: 10px 0;
 }
 
-#menu-coode-menu li{
+#menu-coode_nav_menu li{
   display: inline-block;
 }
 
-#menu-coode-menu li a{
+#menu-coode_nav_menu li a{
   color: #ccc !important;
   font-size: 14px;
   padding-left: 20px;
@@ -65,13 +70,11 @@ section.page_section{
   text-transform: uppercase;
 }
 
-#menu-coode-menu li a:hover{
+#menu-coode_nav_menu li a:hover{
   color: #00a400 !important;
   text-decoration: none;
   transition: color 0.3s;
 }
-
-
 
 .home_content{
   font-family: 'Comfortaa', cursive;
@@ -124,7 +127,7 @@ section.page_section{
 
 h2, h3{
   margin-bottom: 20px!important;
-  margin-top: 20px!important;
+  padding-top: 20px!important;
 }
 
 h4{
