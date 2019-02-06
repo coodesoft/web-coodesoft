@@ -79,19 +79,28 @@ function coode_team_admin_menu(){
 	add_menu_page('Coode Team', 'Coode Team', 'manage_options', 'global_coode_team', 'global_coode_team_content');
 }
 
-
-
-add_shortcode('coodeTeam', 'coode_team_base');
-
-function coode_team_base(){ 
-	echo '<div>lalita</div>';
-}
-
 require_once 'db/CoodeTeam.php';
 require_once 'util/helpers.php';
 require_once 'admin/templates/team_card.php';
 require_once 'admin/ct_admin_area.php';
 
+
+
+function lala(){ ?>
+	<div class="lalita">asdasdasdad</div>
+
+<?php }
+
+
+add_shortcode('coode_team', 'coode_team_base');
+function coode_team_base($atts){
+	return lala();
+}
+
+add_shortcode('skm_schedule', 'global_skirmisher_public');
+function global_skirmisher_public($atts){
+  return lala();
+}
 
 
 ?>

@@ -26,7 +26,7 @@ class Html{
   }
 
   static function home_section($content, $entityId, $args = null){ ?>
-  	<?php 
+  	<?php
 		$theme_mod_background = get_theme_mod('background_'.$entityId);
 		$theme_mod_home_logo = get_theme_mod('home_image_setting');
 		$id = $args ? $args['id'] : '';
@@ -35,14 +35,14 @@ class Html{
 			<div id="home_page" class="wrapper-page" style="background: url(<?php echo $theme_mod_background ?>) no-repeat center">
 				<div class="cover-page">
 					<div class="container">
-						
+
 						<div class="home_image">
 						<!--	<div class="home_image_cover"></div> -->
 							<div class="home_image_wrapper col-sm-5 col-8">
 								<img src="<?php echo $theme_mod_home_logo ?>" alt="home page main image" />
 							</div>
 						</div>
-						
+
 						<div class="home_content">
 							<?php echo $content; ?>
 						</div>
@@ -59,7 +59,7 @@ class Html{
   }
 
   static function section($content, $entityId, $args = null){ ?>
-	<?php 
+	<?php
 		$mod = get_theme_mod('background_'.$entityId);
 		$id = $args ? $args['id'] : '';
 	?>

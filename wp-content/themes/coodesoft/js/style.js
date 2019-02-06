@@ -1,19 +1,19 @@
 
 $(function(){
 
-	var navbar = document.getElementById("main_menu");
-	var sticky = navbar.offsetTop;
+	var navbar = document.getElementsByClassName("menu-coode-menu-container");
+	var sticky = navbar[0].offsetTop;
 
 	function myFunction() {
 	  if (document.documentElement.scrollTop >= sticky) {
-		navbar.classList.add("sticky")
+		 navbar[0].classList.add("sticky")
 	  } else {
-		navbar.classList.remove("sticky");
+		 navbar[0].classList.remove("sticky");
 	  }
 	}
-	
-	window.onscroll = function() { 
-		myFunction() 
+
+	window.onscroll = function() {
+		myFunction()
 	};
 
 });

@@ -12,8 +12,11 @@ function coode_build_sections($content){
   $sections = [];
   foreach ($content as $key => $page) {
     $menu_items[] = [ 'name' => get_the_title($page), 'order' => $page->menu_order ];
-    $sections[]   = [ 'webId' => strtolower(get_the_title($page)), 
-					  'content' => $page->post_content, 
+    $content = apply_filters( 'the_content', $page->post_content );
+    $content = str_replace( ']]>', ']]&gt;', $content );
+
+    $sections[]   = [ 'webId' => strtolower(get_the_title($page)),
+					  'content' =>  $content,
 					  'order' => $page->menu_order,
 					  'id' => $page->ID ];
   }
@@ -42,4 +45,3 @@ function coode_attachment_img($page_id){
 	echo json_encode($url);
 	return 	$url;
 }
-

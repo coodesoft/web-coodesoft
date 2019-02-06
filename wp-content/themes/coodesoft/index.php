@@ -1,23 +1,23 @@
-<?php get_header(); 
+<?php get_header();
 
+  $args = ['post_type' => 'page', 'orderby' => 'menu_order', 'order' => 'ASC'];
+  $query = new WP_Query( $args );
 
 ?>
-<body>
-  <div>
+  <main id="main_coode">
     <?php
-      $stored = coode_prepare_content();
-      foreach ($stored['content'] as $key => $page) {
-		
-        if ($key == 1){
-			echo Html::navbar($stored['menu_items']);
-		}
+    while ( $query->have_posts() ) : $query->the_post();
 
-		if ($key == 0){
-			echo Html::home_section($page['content'], $page['id'], ['id' => $page['webId'] ]);
-        } else{
-			echo Html::section($page['content'], $page['id'], ['id' => $page['webId'] ]);
-			}
-      }
+      if ($query->post->menu_order == 0 ){
+        get_template_part( 'template-parts/content', 'home' );
+        ?>
+        <div id="explore"></div>
+        <?php
+        wp_nav_menu(['name' => 'coode_nav_menu']);
+      } else
+        get_template_part( 'template-parts/content', 'page' );
 
-    ?>
-    <?php get_footer(); ?>
+    endwhile; ?>
+  </main>
+
+ <?php get_footer(); ?>
