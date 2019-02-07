@@ -23,3 +23,5 @@ function add_scripts_front(){
 
 }
 add_action( 'wp_footer', 'add_scripts_front' );
+
+add_theme_support( 'post-thumbnails' ); 

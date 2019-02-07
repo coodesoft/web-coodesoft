@@ -5,7 +5,9 @@ $(function(){
 	var sticky = navbar.offsetTop;
 
 	function myFunction() {
-	  if (document.documentElement.scrollTop >= sticky) {
+		console.log('scrollTop '+document.documentElement.scrollTop);
+		console.log('sticky '+sticky);
+	  if (document.documentElement.scrollTop >= sticky -10) {
 		 navbar.classList.add("sticky")
 	  } else {
 		 navbar.classList.remove("sticky");

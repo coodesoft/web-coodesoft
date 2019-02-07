@@ -78,6 +78,11 @@ section.page_section{
 
 .home_content{
   font-family: 'Comfortaa', cursive;
+  padding-top: 10vh;
+}
+
+#home_page .home_content{
+  padding-top: 0vh;
 }
 
 .home_image{
