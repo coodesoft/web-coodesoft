@@ -49,11 +49,11 @@ function coode_team_create_table(){
 /*
  * ACTIVACIÓN - Registro de assets -----------------------
  */
-
+/*
 wp_register_script('jquery_js', plugins_url('/js/jquery-3.2.1.min.js', __FILE__), [], false, true );
-wp_register_script('bootstrap_js', plugins_url('/js/bootstrap.min.js', __FILE__), ['jquery_js'], false, true );
+wp_register_script('bootstrap_js', plugins_url('/js/bootstrap.min.js', __FILE__), ['jquery'], false, true );
 wp_register_script('popper_js', plugins_url('/js/popper.min.js', __FILE__), [], false, true );
-//wp_register_script('fontawesome-all', plugins_url('/js/fontawesome-all.js', __FILE__), [], false, true );
+wp_register_script('fontawesome-all', plugins_url('/js/fontawesome-all.js', __FILE__), [], false, true );
 
 add_action('admin_enqueue_scripts', 'add_scripts_deps' );
 function add_scripts_deps(){
@@ -62,6 +62,7 @@ function add_scripts_deps(){
     wp_enqueue_script( 'bootstrap_js');
     //wp_enqueue_script( 'fontawesome-all' );
 }
+*/
 
 add_action('admin_enqueue_scripts', 'add_stylesheet_deps' );
 function add_stylesheet_deps($hook){

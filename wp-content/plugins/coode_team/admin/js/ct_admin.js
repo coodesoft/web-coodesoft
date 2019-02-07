@@ -1,31 +1,32 @@
 
-let base_path = '/web-coodesoft';
+(function($){
 
-let createNewTeamCard = function(){
-	var response;
-	$.ajax({
-		type: "GET",
-		url: base_path+'/wp-content/plugins/coode_team/admin/templates/team_card.html',
-		success : function(data){
-			$('#coodeCardContainer>div').prepend(data);
-		}
-	});
+	let base_path = '/web-coodesoft';
 
-}
+	let createNewTeamCard = function(){
+		var response;
+		$.ajax({
+			type: "GET",
+			url: base_path+'/wp-content/plugins/coode_team/admin/templates/team_card.html',
+			success : function(data){
+				$('#coodeCardContainer>div').prepend(data);
+			}
+		});
 
-let preloadImage = function (input, target) {
+	}
 
-  if (input.files && input.files[0]) {
-    var reader = new FileReader();
+	let preloadImage = function (input, target) {
 
-    reader.onload = function(e) {
-      target.attr('src', e.target.result);
-    }
-    reader.readAsDataURL(input.files[0]);
-  }
-}
+	  if (input.files && input.files[0]) {
+	    var reader = new FileReader();
 
-$(function(){
+	    reader.onload = function(e) {
+	      target.attr('src', e.target.result);
+	    }
+	    reader.readAsDataURL(input.files[0]);
+	  }
+	}
+
 
 	$('#coodeTeamPanel').off().on('click', '#newCardButton',function(){
 		createNewTeamCard();
@@ -110,4 +111,4 @@ $(function(){
 
 
 
-})
+})(jQuery)

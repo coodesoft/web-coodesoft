@@ -34,3 +34,6 @@ function coode_service_event_type() {
       'supports' => array( 'title', 'editor', 'custom-fields', 'page-attributes')
     ));
 }
+
+
+require_once 'coode_services_public.php';

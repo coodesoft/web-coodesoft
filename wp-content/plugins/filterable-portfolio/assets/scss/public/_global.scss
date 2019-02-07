@@ -1,0 +1,60 @@
+@import "preboot";
+
+.filterable-portfolio {
+	max-width: 100% !important; // hack for Twenty Nineteen theme
+	display: flex;
+	flex-direction: column;
+
+	&:before,
+	&:after {
+		display: table;
+		content: " ";
+	}
+
+	&:after {
+		clear: both;
+	}
+}
+
+.filterable-portfolio-item {
+	&__content {
+		position: relative;
+		overflow: hidden;
+		text-align: center;
+		margin: 0;
+		padding: 0;
+	}
+
+	&__media {
+		display: block;
+		overflow: hidden;
+
+		img {
+			display: block;
+			height: auto;
+			margin: 0;
+			max-width: 100%;
+			padding: 0;
+			transition: transform 300ms;
+		}
+	}
+
+	&__title {
+		color: $color-button-txt;
+		font-size: inherit;
+		line-height: 1;
+		margin: 0 0 0.5rem 0;
+		padding: 0;
+		text-align: center;
+	}
+
+	&__action.button {
+		background-color: $color-button-bg;
+		box-shadow: none; // hack for Twenty Sixteen theme
+		color: $color-button-txt;
+		font-size: 1rem;
+		font-weight: 400;
+		line-height: 1;
+		padding: 0.5rem 1rem;
+	}
+}

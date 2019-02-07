@@ -1,6 +1,6 @@
 <?php
 
-wp_register_script('ct_admin', plugins_url('/js/ct_admin.js', __FILE__), ['jquery_js'], false, true );
+wp_register_script('ct_admin', plugins_url('/js/ct_admin.js', __FILE__), ['jquery'], false, true );
 add_action('admin_enqueue_scripts', 'add_ascripts_admin' );
 function add_ascripts_admin(){
     wp_enqueue_script( 'ct_admin');
