@@ -23,7 +23,7 @@ function coode_service_html(){
         <div class="row">
           <?php foreach ($services as $key => $service): ?>
             <? $icon = get_post_meta($service->ID, 'icon', true);?>
-            <div class="service col-md-4 sol-sm-6 col-12">
+            <div class="service col-md-3 sol-sm-6 col-12">
                 <div class="service-hexagon"></div>
                 <div class="service-content">
                     <div class="service-icon">

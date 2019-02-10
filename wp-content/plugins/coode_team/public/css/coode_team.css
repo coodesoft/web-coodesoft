@@ -16,6 +16,16 @@
   height: 100%;
 }
 
+.img-container img{
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+
+.img-container img:hover{
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
 .hexagon{
   clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 }

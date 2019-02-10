@@ -12,7 +12,7 @@
 ?>
 
 <section class="page_section" id="<?php echo strtolower(get_the_title()) ?>">
-  <div class="page_background" style="background: url(<?php echo $theme_mod_background ?>) center no-repeat"></div>
+  <div class="page_background" style="background: url(<?php echo $theme_mod_background ?>) no-repeat fixed center"></div>
   <div class="page_cover"></div>
 
 	<div id="home_page" class="wrapper_page container">

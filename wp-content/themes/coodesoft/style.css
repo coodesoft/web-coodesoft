@@ -1,4 +1,18 @@
+/*
+Theme Name: One Page Coodesoft
+Author: Coodesoft Dev Team
+Author URI: https://coodesoft.com.ar
+Description: One Page theme with parallax features, portfolio, and extras
+Version: 1.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Tags: black, green, one-page, flexible-width, custom-header, custom-menu, rtl-language-support, i18n
+Text Domain: coodetheme
+Template:	twentysixteen
 
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool. A great power carries a great responsibility
+*/
 
 html {
   scroll-behavior: smooth;
@@ -23,13 +37,14 @@ section.page_section{
 
 .page_background{
   background-size: cover !important;
-  background-attachment: fixed!important;
   position: absolute;
   min-height: 100%;
   min-width: 100%;
   z-index: 100;
+/*
   -webkit-filter: blur(2px);
   filter: blur(2px);
+*/
 }
 
 .page_cover{
@@ -38,6 +53,7 @@ section.page_section{
   position: absolute;
   z-index: 110;
   background-color: rgba(0, 0, 0, 0.8);
+
 }
 
 #main_menu{
