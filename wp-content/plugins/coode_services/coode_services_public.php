@@ -20,14 +20,14 @@ function coode_service_html(){
             <p>¿Qué servicios ofrecemos?</p>
           </div>
         </div>
-        <div class="row">
+        <div class="row service-area-body">
           <?php foreach ($services as $key => $service): ?>
             <? $icon = get_post_meta($service->ID, 'icon', true);?>
             <div class="service col-md-3 sol-sm-6 col-12">
                 <div class="service-hexagon"></div>
                 <div class="service-content">
                     <div class="service-icon">
-                      <i class="icon-element <?php echo $icon ?>"></i>
+                      <i class="icon-element <?php echo $icon ?> fa-2x"></i>
                     </div>
                     <div class="service-title">
                       <div><?php echo $service->post_title ?></div>
