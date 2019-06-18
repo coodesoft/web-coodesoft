@@ -9,7 +9,6 @@ License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Tags: black, green, one-page, flexible-width, custom-header, custom-menu, rtl-language-support, i18n
 Text Domain: coodetheme
 Template:	twentysixteen
-
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool. A great power carries a great responsibility
 */
@@ -154,4 +153,49 @@ h2, h3{
 h4{
   margin-top: 10vh !important;
   margin-bottom: 3vh !important;
+}
+
+.wpcf7-form label{
+    text-align: left;
+}
+
+.coode_footer{
+    padding-top: 10px;
+    background: #000;
+    text-align: center;
+}
+
+.coode_footer_content .sfsi_wDiv{
+    left: 0;
+    right: 0;
+    text-align: center !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.coode_footer_title{
+    margin: auto;
+    color: whitesmoke;
+    font-family: 'Comfortaa', cursive;
+    padding: 10px;
+    font-size: 18px;
+    
+
+}
+
+.coode_footer .sfsi_wicons{
+    margin-left: 10px!important;
+    margin-right: 10px!important;
+}
+
+.coode_footer .coode_footer_info{
+    text-align: right;
+    padding-right: 10px;
+}
+.coode_footer .coode_footer_info{
+    color: #bbb;
+}
+
+.coode_footer .coode_footer_info a{
+    color: #666;
 }

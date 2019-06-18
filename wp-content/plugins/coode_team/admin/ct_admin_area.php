@@ -83,7 +83,7 @@ function ct_save_team_card(){
 	} else {
 			$response = ['uid' => 0,
 						 'status' => 'danger',
-						 'msg'    => 'Hay algo mal que no anda bien ):. No se pudo guardar la imágen en el servidor ',
+						 'msg'    => 'Hay algo mal que no anda bien ):. No se pudo guardar la imágen en el servidor: '.TEAM_PHOTOS_PATH . '/'. $photo['name'],
 						];
 	}
 
