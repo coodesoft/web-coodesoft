@@ -47,7 +47,8 @@ function coode_customize($wp_customize){
 		'priority'		=> 170,
 		'capability' => 'edit_theme_options',
 	));
-	
+    
+    
 	$wp_customize->add_section('home_image_section', array(
 		'title' 		=> __('Imagen de la Home Page', 'textdomain'),
 		'panel'			=> 'coodesoft_home',
@@ -69,5 +70,36 @@ function coode_customize($wp_customize){
 		   'context'    => 'your_setting_context' 
 		)
     ));
+
+ /**************************************************************************/
+    
+	$wp_customize->add_panel('coodesoft_menu_nav', array(
+		'title'			=>  __( 'Coodesoft Menu Setting', 'textdomain' ),
+		'description'	=>  __( 'Configuraciones del menu principal', 'textdomain' ),
+		'priority'		=> 180,
+		'capability' => 'edit_theme_options',
+	));
+    
+    
+	$wp_customize->add_section('menu_image_section', array(
+		'title' 		=> __('Imagen del menu', 'textdomain'),
+		'panel'			=> 'coodesoft_menu_nav',
+		'priority'		=> 3,
+		'capability'	=> 'edit_theme_options',
+	));
 	
+	$wp_customize->add_setting('menu_image_setting', array(
+		'type'	=> 'theme_mod',
+		'capability' => 'edit_theme_options',
+		'transport' => 'refresh',
+	));
+	
+	$wp_customize->add_control( 
+		new WP_Customize_Image_Control($wp_customize, 'menu_image_control', array(
+		   'label'      => __( 'Upload a home image', 'theme_name' ),
+		   'section'    => 'menu_image_section',
+		   'settings'   => 'menu_image_setting',
+		   'context'    => 'your_setting_context' 
+		)
+    ));    
 }

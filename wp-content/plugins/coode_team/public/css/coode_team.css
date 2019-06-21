@@ -4,11 +4,10 @@
   width: 100%;
 }
 #coode-team-plugin .thumb{
-  background-color: #00a400;
   height: 100%;
   display: block;
-  padding: 2px;
 }
+
 
 .img-container {
   margin: auto;
@@ -17,13 +16,18 @@
 }
 
 .img-container img{
-  transition: transform 0.3s ease;
-  cursor: pointer;
+  transition: transform 0.2s ease;
 }
 
 .img-container img:hover{
-  transform: scale(1.2);
-  transition: transform 0.3s ease;
+  transform: scale(1.1);
+  transition: transform 0.2s ease;
+}
+
+@media (max-width: 768px){
+    .img-container img:hover{
+      transform: scale(1.05);
+    }
 }
 
 .hexagon{
@@ -32,4 +36,23 @@
 
 .member-link{
   color: #ddd!important;
+  transition: color 0.2s ease;
+  text-decoration: none;
 }
+
+.member-link:hover{
+  color: #00a400 !important; 
+  transition: color 0.2s ease;
+  text-decoration: none;
+}
+
+.member-name,
+.member-social{
+    margin-top: 25px;
+}
+
+.member-social{
+    margin-bottom: 25px;
+}
+
+

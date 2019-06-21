@@ -29,7 +29,7 @@
 
 		<div class="home_link">
 			<a href="#explore">
-				<i class="far fa-angle-double-down fa-2x"></i>
+				<i class="fal fa-angle-double-down fa-2x"></i>
 			</a>
 		</div>
 	</div>

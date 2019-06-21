@@ -3,12 +3,17 @@
  clip-path: polygon(50% 0, 100% 25%, 100% 75%, 50% 100%, 0 75%, 0 25%);
 }
 
+.service{
+      margin-bottom: 20px;
+}
+
 .service:before{
   content: "";
   display: block;
   padding-top: 100%!important;
 }
 
+.service-hexagon-active,
 .service-hexagon{
   width: 100%;
   height: 100%;
@@ -19,6 +24,13 @@
   background-size: auto 100%;
   background-repeat: no-repeat;
   background-position: center;
+}
+
+.service-hexagon-active{
+    background: url('../img/base-hexagon-active.svg');
+    background-size: auto 100%;
+    background-repeat: no-repeat;
+    background-position: center;    
 }
 
 .service-content{
@@ -63,7 +75,19 @@
   display: inline-block;
   vertical-align: middle;
   width: 95%;
-  font-size: 140%;
+  font-size: 210%;
+}
+
+@media (min-width: 768px) {
+    .service-title div{
+        font-size: 110%;
+    }
+}
+
+@media (max-width: 768px){
+    .service-icon{
+        font-size: calc(1em + 7vw);
+    }
 }
 
 .service-icon .icon-element{
@@ -102,3 +126,5 @@
 .service-area-body{
   margin-top: 10%;
 }
+
+

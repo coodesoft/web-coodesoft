@@ -25,8 +25,8 @@ function cards_html(){
     <?php foreach ($cards as $key => $teamMember): ?>
       <div class="col-md-3 col-12">
         <div class="thumb-container">
-          <div class="thumb hexagon">
-            <div class="img-container hexagon">
+          <div class="thumb">
+            <div class="img-container">
               <img src="<?php echo TEAM_PHOTOS_URL."/".get_file_name($teamMember['img_path'])?>" alt="">
             </div>
           </div>

@@ -15,5 +15,11 @@
 	window.onscroll = function() {
 		myFunction()
 	};
+    
+    $('body').off().on('click', '#menu-coode_nav_menu li a', function(){
+        $('#menu-coode_nav_menu li a').removeClass('active-item');
+        $(this).addClass('active-item');
+    })
+    
 
 })(jQuery);
